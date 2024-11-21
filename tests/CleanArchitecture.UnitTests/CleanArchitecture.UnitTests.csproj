@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+	<PackageReference Include="Moq" />
     <PackageReference Include="coverlet.collector" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="xunit" />
@@ -16,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\API\API.csproj" />
     <ProjectReference Include="..\..\src\Application\Application.csproj" />
   </ItemGroup>
 
