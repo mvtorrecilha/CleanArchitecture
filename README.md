@@ -16,9 +16,11 @@ https://dotnet.microsoft.com/pt-br/download/dotnet/9.0
 }
 ```
 
-## Technologies
+## Implemented
 - ASP.NET Core 9
 - CQRS
 - Mediatr
-- FluentValidation
+- FluentResults
 - Serilog
+- Architecture tests
+- Unit tests
