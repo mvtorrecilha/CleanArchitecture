@@ -1,3 +1,4 @@
+using API.Configurations;
 using API.Extensions;
 using Serilog;
 
@@ -10,6 +11,9 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
+    // Configuração de logging 
+    LoggingConfiguration.ConfigureLogging(builder);
+
     // Add services to the container.
     builder.Services.AddCustomServices(builder.Configuration);
 

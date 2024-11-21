@@ -22,6 +22,7 @@ https://dotnet.microsoft.com/pt-br/download/dotnet/9.0
 - Mediatr
 - FluentResults
 - Serilog
+- Application Insights
 - Architecture tests
 - Unit tests
 - Azure devops CI/CD

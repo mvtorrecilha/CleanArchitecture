@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+	<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" />
 	<PackageReference Include="Asp.Versioning.Http" />
 	<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" />
 	<PackageReference Include="MediatR" />
@@ -15,6 +16,7 @@
 	<PackageReference Include="Serilog.AspNetCore" />
 	<PackageReference Include="Serilog.Sinks.Console" />
 	<PackageReference Include="Serilog.Sinks.File" />
+	<PackageReference Include="Serilog.Sinks.ApplicationInsights" />
   </ItemGroup>
 
   <ItemGroup>
