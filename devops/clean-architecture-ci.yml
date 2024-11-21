@@ -1,0 +1,70 @@
+name: Build Clean Architecture - CI
+trigger:
+  branches:
+    include:
+      - main
+pool:
+  vmImage: ubuntu-latest
+variables:
+  defaultWorkingDirectory: $(System.DefaultWorkingDirectory)
+  buildConfiguration: Release
+  subscriptionId: Clean Architecture
+stages:
+  - stage: Builds
+    displayName: Build
+    jobs:
+      - job: RunningTests
+        displayName: Building
+        steps:
+          - task: UseDotNet@2
+            displayName: Install Dotnet Core cli
+            inputs:
+              useGlobalJson: true
+          - task: DotNetCoreCLI@2
+            displayName: dotnet restore
+            inputs:
+             command: restore
+             projects: src/**/*.csproj
+          - task: DotNetCoreCLI@2
+            displayName: dotnet build
+            inputs:
+             command: build
+             arguments: --no-restore --configuration $(buildConfiguration)
+             projects: src/**/*.csproj
+          - task: DotNetCoreCLI@2
+            displayName: Running Architecture Tests
+            inputs:
+              command: test
+              projects: $(defaultWorkingDirectory)/tests/CleanArchitecture.ArchitectureTests
+              arguments: '--configuration $(buildConfiguration)'
+          - task: DotNetCoreCLI@2
+            displayName: Running Unit Tests
+            inputs:
+             command: test
+             projects: $(defaultWorkingDirectory)/tests/CleanArchitecture.UnitTests
+             arguments: '--configuration $(buildConfiguration) --logger trx --collect "Code coverage"'
+          - task: PublishTestResults@2
+            displayName: Publishing test results
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFormat: "VSTest"
+              testResultsFiles: "**/*.trx"
+          - task: DeleteFiles@1
+            displayName: Delete files Hub API
+            inputs:
+              SourceFolder: $(defaultWorkingDirectory)/src/API
+              Contents: >-
+                **/appsettings.Development.json
+          - task: DotNetCoreCLI@2
+            displayName: Publish Hub API project - $(buildConfiguration)
+            inputs:
+              command: publish
+              projects: $(defaultWorkingDirectory)/src/API/API.csproj
+              publishWebProjects: false
+              arguments: >-
+                --no-build --configuration $(buildConfiguration) --output
+                $(Build.ArtifactStagingDirectory)/$(buildConfiguration)
+              zipAfterPublish: true
+          - publish: $(build.ArtifactStagingDirectory)
+            displayName: Publish artifact
+            artifact: drop  

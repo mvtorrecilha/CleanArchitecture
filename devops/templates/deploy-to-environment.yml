@@ -1,0 +1,18 @@
+parameters:
+  - name: buildname
+  - name: subscriptionId
+  - name: webAppName
+  - name: projectName
+    default: ""
+
+steps:
+  - checkout: self
+  - download: ${{ parameters.buildname }}
+    artifact: drop
+  - task: AzureWebApp@1
+    displayName: Azure App Service Deploy - ${{ parameters.projectName }}
+    inputs:
+     azureSubscription: ${{ parameters.subscriptionId }}
+     appType: webApp
+     appName: ${{ parameters.webAppName }}
+     package: '$(Pipeline.Workspace)/${{ parameters.buildname }}/drop/Release/${{ parameters.projectName }}.zip'

@@ -24,3 +24,4 @@ https://dotnet.microsoft.com/pt-br/download/dotnet/9.0
 - Serilog
 - Architecture tests
 - Unit tests
+- Azure devops CI/CD

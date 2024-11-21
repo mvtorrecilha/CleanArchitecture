@@ -1,0 +1,34 @@
+#This pipeline will be triggered by another pipeline
+trigger: none
+pr: none
+resources:
+  pipelines:
+    - pipeline: clean-architecture-build
+      source: Build Clean Architecture - CI
+      trigger:
+        enabled: true
+        branches:
+          - main
+
+variables:
+  subscriptionId: Clean Architecture
+  projectName: API
+stages:
+  - stage: Production
+    dependsOn: []
+    displayName: Deploy to the Production environment
+    jobs:
+      - deployment: Deploy
+        pool:
+          vmImage: ubuntu-latest
+        environment: Clean Architecture - Production
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - template: templates/deploy-to-environment.yml
+                  parameters:
+                    buildname: clean-architecture-build
+                    subscriptionId: $(subscriptionId)
+                    webAppName: clean-architecture-api
+                    projectName: $(projectName)

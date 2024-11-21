@@ -45,7 +45,7 @@ public class DomainLayerTests
         IEnumerable<Type> types = Types
             .InAssembly(assembly)
             .That()
-            .ResideInNamespace("Sensoriamento.Domain.Entities.NoSQL")
+            .ResideInNamespace("Domain.Entities")
             .GetTypes();
 
         //Act

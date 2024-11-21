@@ -29,6 +29,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Architect
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.UnitTests", "tests\CleanArchitecture.UnitTests\CleanArchitecture.UnitTests.csproj", "{28366CED-9C29-4A80-8EA8-0BD1DF499F88}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "devops", "devops", "{DF5EAF9F-221F-4CAA-ACF2-954C72FD7CA5}"
+	ProjectSection(SolutionItems) = preProject
+		devops\clean-architecture-api-cd.yml = devops\clean-architecture-api-cd.yml
+		devops\clean-architecture-ci.yml = devops\clean-architecture-ci.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{7F5F1FED-D0B8-4D97-B018-A0AB54038B79}"
+	ProjectSection(SolutionItems) = preProject
+		devops\templates\deploy-to-environment.yml = devops\templates\deploy-to-environment.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,5 +76,7 @@ Global
 		{E1359C3D-3A3B-4654-AC1C-F4FA9122E7A8} = {4F3F485F-E52A-4114-8D18-9734D0A6A8B1}
 		{DFB86A65-8CD1-4857-A86C-C9C9121E718D} = {6495C664-E51B-4014-9F59-EF2768D72EAA}
 		{28366CED-9C29-4A80-8EA8-0BD1DF499F88} = {6495C664-E51B-4014-9F59-EF2768D72EAA}
+		{DF5EAF9F-221F-4CAA-ACF2-954C72FD7CA5} = {1222EB93-98C0-4D9A-A9EC-2959BC7BAC31}
+		{7F5F1FED-D0B8-4D97-B018-A0AB54038B79} = {DF5EAF9F-221F-4CAA-ACF2-954C72FD7CA5}
 	EndGlobalSection
 EndGlobal
