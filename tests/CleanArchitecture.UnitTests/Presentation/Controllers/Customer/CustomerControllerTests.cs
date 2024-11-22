@@ -40,7 +40,7 @@ public class CustomerControllerTests
         var result = await _controller.CreateCustomerAsync(customerInput, CancellationToken.None);
 
         // Assert
-        result.Should().BeOfType<OkResult>(); // Expecting HTTP 200 OK
+        result.Should().BeOfType<OkResult>();
     }
 
     [Fact]
@@ -90,7 +90,7 @@ public class CustomerControllerTests
     {
         // Arrange
         var customerId = Guid.NewGuid();
-        var customerDto = new CustomerDto(customerId, "John Doe", "john.doe@example.com", DateOnly.FromDateTime(DateTime.Now));
+        var customerDto = new CustomerDto(customerId, "John Doe", "john.doe@example.com", DateTime.Now);
 
         _senderMock.Setup(sender => sender.Send(It.IsAny<GetCustomerByIdQuery>(), It.IsAny<CancellationToken>()))
                    .ReturnsAsync(Result.Ok(customerDto));
@@ -99,9 +99,9 @@ public class CustomerControllerTests
         var result = await _controller.GetCustomerByIdAsync(customerId, CancellationToken.None);
 
         // Assert
-        result.Should().BeOfType<OkObjectResult>(); // Expecting HTTP 200 OK with CustomerDto in the body
+        result.Should().BeOfType<OkObjectResult>();
         var okResult = result as OkObjectResult;
-        okResult.Value.Should().BeEquivalentTo(customerDto); // Ensure the returned CustomerDto is correct
+        okResult.Value.Should().BeEquivalentTo(customerDto);
     }
 
     [Fact]
