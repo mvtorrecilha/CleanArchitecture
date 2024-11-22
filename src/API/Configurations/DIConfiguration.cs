@@ -1,4 +1,6 @@
 ﻿using Application;
+using Infrastructure;
+
 namespace API.Configurations;
 
 public static class DIConfiguration
@@ -10,5 +12,6 @@ public static class DIConfiguration
     /// <returns></returns>
     public static IServiceCollection AddDIConfiguration(this IServiceCollection services) =>
         services
-          .AddApplicationServices();
+          .AddApplicationServices()
+          .AddInfraDI();
 }

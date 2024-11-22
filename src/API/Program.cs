@@ -24,6 +24,8 @@ try
 
     var app = builder.Build();
 
+    app.ApplyDatabaseMigrations();
+
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
     {
