@@ -1,11 +1,11 @@
 ﻿using API.Controllers;
 using API.Models.Customer;
-using Application.Features.Customer.Queries;
+using Application.Features.Customers.Commands.Create;
+using Application.Features.Customers.Dtos;
+using Application.Features.Customers.Queries;
 using Domain.FluentResults;
 using FluentAssertions;
 using FluentResults;
-using global::Application.Features.Customer.Commands.Create;
-using global::Application.Features.Customer.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +30,7 @@ public class CustomerControllerTests
     public async Task CreateCustomerAsync_ShouldReturnOk_WhenCommandIsSuccessful()
     {
         // Arrange
-        var customerInput = new CustomerInput { Name = "John Doe", Email = "john.doe@example.com", BirthDate = DateOnly.FromDateTime(DateTime.Now) };
+        var customerInput = new CustomerInput { Name = "John Doe", Email = "john.doe@example.com", BirthDate = DateTime.Now };
         var createCustomerCommand = new CreateCustomerCommand(customerInput.Name, customerInput.Email, customerInput.BirthDate);
 
         _senderMock.Setup(sender => sender.Send(It.IsAny<CreateCustomerCommand>(), It.IsAny<CancellationToken>()))
@@ -47,7 +47,7 @@ public class CustomerControllerTests
     public async Task CreateCustomerAsync_ShouldReturnBadRequest_WhenValidationFails()
     {
         // Arrange
-        var customerInput = new CustomerInput { Name = "", Email = "invalid-email", BirthDate = DateOnly.MinValue };
+        var customerInput = new CustomerInput { Name = "", Email = "invalid-email", BirthDate = DateTime.MinValue };
         var createCustomerCommand = new CreateCustomerCommand(customerInput.Name, customerInput.Email, customerInput.BirthDate);
 
         Result expectedResult = Result.Fail(BadRequestError.Conflict("invalid input"));
@@ -66,7 +66,7 @@ public class CustomerControllerTests
     public async Task CreateCustomerAsync_ShouldReturnInternalServerError_WhenUnexpectedErrorOccurs()
     {
         // Arrange
-        var customerInput = new CustomerInput { Name = "John Doe", Email = "john.doe@example.com", BirthDate = DateOnly.FromDateTime(DateTime.Now) };
+        var customerInput = new CustomerInput { Name = "John Doe", Email = "john.doe@example.com", BirthDate = DateTime.Now };
         var createCustomerCommand = new CreateCustomerCommand(customerInput.Name, customerInput.Email, customerInput.BirthDate);
 
         Result expectedResult = Result.Fail(InternalServerError.UnexpectedError("Error processing request"));

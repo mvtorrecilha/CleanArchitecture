@@ -17,8 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{52B528DA-0124-4357-A56A-97B4933BA49C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{4F3F485F-E52A-4114-8D18-9734D0A6A8B1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "src\API\API.csproj", "{E1359C3D-3A3B-4654-AC1C-F4FA9122E7A8}"
@@ -39,6 +37,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{
 	ProjectSection(SolutionItems) = preProject
 		devops\templates\deploy-to-environment.yml = devops\templates\deploy-to-environment.yml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{2C904954-0083-4F2C-A144-ADE3D341EDB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{C74E1D2E-2C6B-4EF5-B401-C06488F35269}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,6 +68,10 @@ Global
 		{28366CED-9C29-4A80-8EA8-0BD1DF499F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28366CED-9C29-4A80-8EA8-0BD1DF499F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28366CED-9C29-4A80-8EA8-0BD1DF499F88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C74E1D2E-2C6B-4EF5-B401-C06488F35269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C74E1D2E-2C6B-4EF5-B401-C06488F35269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C74E1D2E-2C6B-4EF5-B401-C06488F35269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C74E1D2E-2C6B-4EF5-B401-C06488F35269}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,5 +84,6 @@ Global
 		{28366CED-9C29-4A80-8EA8-0BD1DF499F88} = {6495C664-E51B-4014-9F59-EF2768D72EAA}
 		{DF5EAF9F-221F-4CAA-ACF2-954C72FD7CA5} = {1222EB93-98C0-4D9A-A9EC-2959BC7BAC31}
 		{7F5F1FED-D0B8-4D97-B018-A0AB54038B79} = {DF5EAF9F-221F-4CAA-ACF2-954C72FD7CA5}
+		{C74E1D2E-2C6B-4EF5-B401-C06488F35269} = {2C904954-0083-4F2C-A144-ADE3D341EDB4}
 	EndGlobalSection
 EndGlobal

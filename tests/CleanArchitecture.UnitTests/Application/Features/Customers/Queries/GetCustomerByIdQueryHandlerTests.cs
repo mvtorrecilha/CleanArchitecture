@@ -1,8 +1,8 @@
-﻿using Application.Features.Customer.Queries;
-
-namespace CleanArchitecture.UnitTests.Application.Features.Customer.Queries;
-using FluentAssertions;
+﻿using FluentAssertions;
+using global::Application.Features.Customers.Queries;
 using Xunit;
+
+namespace CleanArchitecture.UnitTests.Application.Features.Customers.Queries;
 
 public class GetCustomerByIdQueryHandlerTests
 {

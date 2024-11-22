@@ -1,7 +1,7 @@
 ﻿using API.Models.Customer;
-using Application.Features.Customer.Commands.Create;
-using Application.Features.Customer.Dtos;
-using Application.Features.Customer.Queries;
+using Application.Features.Customers.Commands.Create;
+using Application.Features.Customers.Dtos;
+using Application.Features.Customers.Queries;
 using Asp.Versioning;
 using Domain.Abstractions.ErrorData;
 using FluentResults;

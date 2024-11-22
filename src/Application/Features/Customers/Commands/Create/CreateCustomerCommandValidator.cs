@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
 
-namespace Application.Features.Customer.Commands.Create;
+namespace Application.Features.Customers.Commands.Create;
 
 public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
 {
@@ -19,7 +19,7 @@ public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCo
 
         RuleFor(customer => customer.BirthDate)
             .NotEmpty().WithMessage("Birth date is required.")
-            .Must(birthDate => birthDate < DateOnly.FromDateTime(DateTime.UtcNow))
+            .Must(birthDate => birthDate < DateTime.UtcNow)
             .WithMessage("Birth date must be in the past.");
 
         ValidationResult = Validate(createCustomerCommand);

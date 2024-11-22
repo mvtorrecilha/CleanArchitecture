@@ -1,8 +1,8 @@
 ﻿using Application.Abstractions.Messaging;
-using Application.Features.Customer.Dtos;
+using Application.Features.Customers.Dtos;
 using FluentResults;
 
-namespace Application.Features.Customer.Queries;
+namespace Application.Features.Customers.Queries;
 
 public sealed class GetCustomerByIdQueryHandler : IQueryhandler<GetCustomerByIdQuery, CustomerDto>
 {

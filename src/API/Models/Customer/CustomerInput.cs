@@ -6,5 +6,5 @@ public class CustomerInput
 
     public string Email { get; set; }
 
-    public DateOnly BirthDate { get; set; }
+    public DateTime BirthDate { get; set; }
 }
