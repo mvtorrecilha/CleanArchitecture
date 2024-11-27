@@ -39,9 +39,7 @@ public class CustomerController(ISender sender) : BaseController()
 
         Result result = await _sender.Send(createCustomerCommand, cancellationToken);
         if (result.IsSuccess)
-        {
-            return Ok();
-        }
+            return Ok(); 
 
         return FluentResult(result);
     }
@@ -66,9 +64,7 @@ public class CustomerController(ISender sender) : BaseController()
 
         Result<CustomerDto> result = await _sender.Send(getCustomerByIdQuery, cancellationToken);
         if (result.IsSuccess)
-        {
-            return Ok(result.Value);
-        }
+            return Ok(result.Value);    
 
         return FluentResult(result);
     }
