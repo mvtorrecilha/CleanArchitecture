@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers;
 
 [ApiVersion("1.0")]
-[Route("api/v{version:apiVersion}/customer")]
+[Route("api/v{version:apiVersion}/customers")]
 public class CustomerController(ISender sender) : BaseController()
 {
     #region Private Fields
@@ -29,7 +29,7 @@ public class CustomerController(ISender sender) : BaseController()
     /// Returns a 400 Bad Request status if the provided input data is invalid.
     /// Returns a 500 Internal Server Error status for unexpected errors.
     /// </returns>
-    [HttpPost("create")]
+    [HttpPost()]
     [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ResponseErrorBaseData), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ResponseErrorBaseData), StatusCodes.Status500InternalServerError)]
